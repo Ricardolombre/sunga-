@@ -1,18 +1,27 @@
+"use client"
+
 import Image from "next/image"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Checkbox } from "@/components/ui/checkbox"
+import { useRouter } from "next/navigation"
 
 export default function ConnexionPage() {
+  const router = useRouter();
+
+  const handleConnection = () => {
+    router.push('/verification')
+  }
+
   return (
     <div className="min-h-screen flex items-center justify-center bg-[#001B52] p-8">
       <div className="w-full max-w-md space-y-8">
         {/* Logo */}
         <div className="flex justify-center">
           <Image
-            src="/images/adobe-20express-20-20file.png"
+            src="/images/icon_dark.jpeg"
             alt="Sunga+"
             width={200}
             height={60}
@@ -55,30 +64,26 @@ export default function ConnexionPage() {
               </Label>
             </div>
             <div className="flex items-center space-x-2">
-              <Checkbox id="forgot" className="border-[#00A67F] data-[state=checked]:bg-[#00A67F]" />
-              <Label htmlFor="forgot" className="text-sm text-white cursor-pointer">
+              <Link href="/inscription" className="underline text-sm text-white hover:text-[#00A67F]">
                 Mot de passe oublié ?
-              </Label>
+              </Link>
             </div>
           </div>
 
           <div className="flex items-start space-x-2">
             <Checkbox id="terms" className="mt-1 border-[#00A67F] data-[state=checked]:bg-[#00A67F]" />
-            <Label htmlFor="terms" className="text-sm text-white leading-relaxed">
-              J'accepte les{" "}
-              <Link href="/conditions" className="text-[#00A67F] hover:underline">
-                conditions d'utilisation
-              </Link>{" "}
-              et{" "}
-              <Link href="/confidentialite" className="text-[#00A67F] hover:underline">
-                politique de confidentialité
-              </Link>
+            <Label htmlFor="terms" className="text-sm text-white flex items-center gap-1 whitespace-nowrap">
+              <span>J'accepte les</span>
+              <Link href="/conditions" className="text-[#00A67F] hover:underline">conditions d'utilisation</Link>
+              <span>et</span>
+              <Link href="/confidentialite" className="text-[#00A67F] hover:underline">politique de confidentialité</Link>
             </Label>
           </div>
 
           <Button
             type="submit"
             className="w-full h-14 bg-[#00A67F] hover:bg-[#008f6d] text-white font-semibold text-lg rounded-xl"
+            onClick={handleConnection}
           >
             Se connecter
           </Button>

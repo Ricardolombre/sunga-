@@ -8,9 +8,11 @@ import Link from "next/link"
 import { ArrowLeft, Mail } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
+import { useRouter } from "next/navigation"
 
 export default function VerificationPage() {
   const [code, setCode] = useState(["", "", "", "", "", ""])
+  const router = useRouter()
 
   const handleCodeChange = (index: number, value: string) => {
     if (value.length <= 1 && /^\d*$/.test(value)) {
@@ -33,17 +35,21 @@ export default function VerificationPage() {
     }
   }
 
+  const handleVerify = () => {
+    router.push("/")
+  }
+
   return (
     <div className="min-h-screen flex items-center justify-center p-8 bg-[#001B52]">
-      <div className="w-full max-w-md space-y-8">
+      <div className="w-full max-w-md space-y-1">
         {/* Logo */}
         <div className="flex justify-center">
           <Image
-            src="/images/adobe-20express-20-20file.png"
+            src="/images/icon_dark.jpeg"
             alt="Sunga+"
             width={200}
             height={60}
-            className="h-12 w-auto"
+            className="w-[250px]"
           />
         </div>
 
@@ -85,6 +91,7 @@ export default function VerificationPage() {
             type="submit"
             className="w-full h-12 bg-[#00A67F] hover:bg-[#008f6d] text-white font-semibold rounded-full"
             disabled={code.some((digit) => !digit)}
+            onClick={handleVerify}
           >
             Vérifier
           </Button>

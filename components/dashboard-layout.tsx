@@ -4,7 +4,7 @@ import type React from "react"
 
 import { useState, useEffect } from "react"
 import Link from "next/link"
-import { usePathname } from "next/navigation"
+import { usePathname, useRouter } from "next/navigation"
 import {
   LayoutDashboard,
   Users,
@@ -38,6 +38,7 @@ export function DashboardLayout({ children }: { children: React.ReactNode }) {
   const pathname = usePathname()
   const [theme, setTheme] = useState<"light" | "dark">("light")
   const [sidebarOpen, setSidebarOpen] = useState(false)
+  const router = useRouter();
 
   useEffect(() => {
     const savedTheme = localStorage.getItem("theme") as "light" | "dark" | null;
@@ -59,6 +60,10 @@ export function DashboardLayout({ children }: { children: React.ReactNode }) {
     }
   };
 
+  const handleLogout = () => {
+    router.push("/connexion");
+  };
+
   return (
     <div className="flex h-screen bg-secondary">
       {/* Mobile sidebar backdrop */}
@@ -78,17 +83,17 @@ export function DashboardLayout({ children }: { children: React.ReactNode }) {
         <div className="flex items-center justify-between p-6 border-b border-[#001B52]/10 dark:border-white/10">
           <div className="flex items-center gap-2">
             {/* Image affichée en mode clair, cachée en mode sombre */}
-            <img 
-              src="/images/icon_light.jpeg" 
-              alt="Sunga+" 
-              className="dark:hidden w-auto" 
+            <img
+              src="/images/icon_light.jpeg"
+              alt="Sunga+"
+              className="dark:hidden w-auto"
             />
 
             {/* Image cachée par défaut, affichée uniquement en mode sombre */}
-            <img 
-              src="/images/icon_dark.jpeg" 
-              alt="Sunga+" 
-              className="hidden dark:block w-auto" 
+            <img
+              src="/images/icon_dark.jpeg"
+              alt="Sunga+"
+              className="hidden dark:block w-auto"
             />
           </div>
           <Button
@@ -134,7 +139,11 @@ export function DashboardLayout({ children }: { children: React.ReactNode }) {
             {theme === "light" ? <Moon className="h-5 w-5 mr-3" /> : <Sun className="h-5 w-5 mr-3" />}
             Thème
           </Button>
-          <Button variant="ghost" className="w-full justify-start text-[#001B52] dark:text-white hover:bg-[#001B52] dark:hover:bg-white/10">
+          <Button
+            variant="ghost"
+            className="w-full justify-start text-[#001B52] dark:text-white hover:bg-[#001B52] hover:text-white dark:hover:bg-white/10"
+            onClick={handleLogout}
+          >
             <LogOut className="h-5 w-5 mr-3" />
             Se déconnecter
           </Button>
