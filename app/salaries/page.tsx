@@ -200,7 +200,7 @@ export default function SalariesPage() {
         </div>
       </div>
 
-      {/* Modals remain the same but with improved button contrast */}
+      {/* Modals */}
       {isModalOpen && (
         <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
           <div className="bg-white rounded-2xl w-full max-w-3xl overflow-hidden">
@@ -301,13 +301,13 @@ export default function SalariesPage() {
             </div>
 
             <div className="p-8 space-y-6">
-              <div className="flex items-center justify-between">
+              <div className="space-y-4">
                 <p className="text-primary">
                   Veuillez télécharger le modèle de fichier Excel avant l'importation de votre Base de Données salariés.
                 </p>
                 <Button
                   variant="outline"
-                  className="px-6 h-12 rounded-xl border-2 border-gray-300 text-primary hover:bg-primary hover:text-white whitespace-nowrap bg-transparent"
+                  className="px-6 h-12 rounded-xl border-2 border-gray-300 text-primary hover:bg-primary hover:text-white bg-transparent"
                 >
                   Télécharger le template
                 </Button>
