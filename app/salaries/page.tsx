@@ -165,7 +165,7 @@ export default function SalariesPage() {
 
         <div className="flex items-center justify-end gap-4">
           <Button variant="outline" size="sm" className="bg-gray-100 hover:bg-primary hover:text-white text-primary border-gray-300">
-            <
+            {"<"}
           </Button>
           <Button
             variant="outline"
