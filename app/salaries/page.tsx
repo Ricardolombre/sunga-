@@ -75,7 +75,7 @@ export default function SalariesPage() {
             <Button
               onClick={() => setIsUploadModalOpen(true)}
               variant="outline"
-              className="gap-2 border-gray-300 text-primary bg-gray-100 dark:hover:bg-[#001B52]"
+              className="gap-2 border-gray-300 text-primary bg-gray-100 hover:bg-primary hover:text-white"
             >
               <Download className="h-4 w-4" />
               Téléverser un fichier Excel
@@ -85,7 +85,7 @@ export default function SalariesPage() {
               Ajouter un salarié
             </Button>
             <Select>
-              <SelectTrigger className="w-[240px] data-[placeholder]:text-white/70 bg-accent hover:bg-accent/90 text-white border-accent dark:text-black">
+              <SelectTrigger className="w-[240px] data-[placeholder]:text-white/70 bg-accent hover:bg-accent/90 text-white border-accent">
                 <SelectValue placeholder="Choisir une entreprise" />
               </SelectTrigger>
               <SelectContent>
@@ -164,20 +164,20 @@ export default function SalariesPage() {
         </div>
 
         <div className="flex items-center justify-end gap-4">
-          <Button variant="outline" size="sm" className="bg-gray-100 hover:bg-gray-200 text-primary border-gray-300">
-            &lt;
+          <Button variant="outline" size="sm" className="bg-gray-100 hover:bg-primary hover:text-white text-primary border-gray-300">
+            <
           </Button>
           <Button
             variant="outline"
             size="sm"
-            className="bg-gray-100 hover:bg-gray-200 text-primary border-gray-300 px-4"
+            className="bg-gray-100 hover:bg-primary hover:text-white text-primary border-gray-300 px-4"
           >
             Prev
           </Button>
           <Button
             variant="outline"
             size="sm"
-            className="bg-gray-100 hover:bg-gray-200 text-primary border-gray-300 px-4"
+            className="bg-gray-100 hover:bg-primary hover:text-white text-primary border-gray-300 px-4"
           >
             Next
           </Button>
@@ -200,6 +200,7 @@ export default function SalariesPage() {
         </div>
       </div>
 
+      {/* Modals remain the same but with improved button contrast */}
       {isModalOpen && (
         <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
           <div className="bg-white rounded-2xl w-full max-w-3xl overflow-hidden">
@@ -267,7 +268,7 @@ export default function SalariesPage() {
                 <Button
                   onClick={() => setIsModalOpen(false)}
                   variant="outline"
-                  className="px-8 h-12 rounded-xl border-2 border-gray-300 text-primary dark:hover:text-[#001B52]"
+                  className="px-8 h-12 rounded-xl border-2 border-gray-300 text-primary hover:bg-primary hover:text-white"
                 >
                   Annuler
                 </Button>
@@ -306,7 +307,7 @@ export default function SalariesPage() {
                 </p>
                 <Button
                   variant="outline"
-                  className="px-6 h-12 rounded-xl border-2 border-gray-300 text-primary dark:hover:bg-[#001B52] whitespace-nowrap bg-transparent"
+                  className="px-6 h-12 rounded-xl border-2 border-gray-300 text-primary hover:bg-primary hover:text-white whitespace-nowrap bg-transparent"
                 >
                   Télécharger le template
                 </Button>
@@ -317,7 +318,7 @@ export default function SalariesPage() {
                 <div className="border-2 border-gray-300 rounded-xl p-6 flex items-center gap-4">
                   <label
                     htmlFor="file-upload"
-                    className="px-6 py-2 rounded-lg border-2 border-primary text-primary font-medium cursor-pointer hover:bg-gray-50 transition-colors"
+                    className="px-6 py-2 rounded-lg border-2 border-primary text-primary font-medium cursor-pointer hover:bg-primary hover:text-white transition-colors"
                   >
                     choisir un fichier
                   </label>
@@ -353,7 +354,7 @@ export default function SalariesPage() {
                     setSelectedFile(null)
                   }}
                   variant="outline"
-                  className="px-8 h-12 rounded-xl border-2 border-gray-300 text-primary dark:hover:bg-[#001B52]"
+                  className="px-8 h-12 rounded-xl border-2 border-gray-300 text-primary hover:bg-primary hover:text-white"
                 >
                   Annuler
                 </Button>

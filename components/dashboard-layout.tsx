@@ -16,7 +16,6 @@ import {
   LogOut,
   Moon,
   Sun,
-  Search,
   Menu,
   X,
 } from "lucide-react"
@@ -69,7 +68,7 @@ export function DashboardLayout({ children }: { children: React.ReactNode }) {
         <div className="fixed inset-0 z-40 bg-black/50 lg:hidden" onClick={() => setSidebarOpen(false)} />
       )}
 
-      {/* Sidebar - Light mode: cream/beige, Dark mode: dark blue */}
+      {/* Sidebar */}
       <aside
         className={cn(
           "fixed inset-y-0 left-0 z-50 w-64 transform transition-transform duration-300 ease-in-out lg:translate-x-0 lg:static flex flex-col",
@@ -80,14 +79,11 @@ export function DashboardLayout({ children }: { children: React.ReactNode }) {
         {/* Logo */}
         <div className="flex items-center justify-between p-6 border-b border-[#001B52]/10 dark:border-white/10">
           <div className="flex items-center gap-2">
-            {/* Image affichée en mode clair, cachée en mode sombre */}
             <img
               src="/images/icon_light.jpeg"
               alt="Sunga+"
               className="dark:hidden w-auto"
             />
-
-            {/* Image cachée par défaut, affichée uniquement en mode sombre */}
             <img
               src="/images/icon_dark.jpeg"
               alt="Sunga+"
@@ -97,7 +93,7 @@ export function DashboardLayout({ children }: { children: React.ReactNode }) {
           <Button
             variant="ghost"
             size="icon"
-            className="lg:hidden text-[#001B52] dark:text-white hover:bg-[#001B52]/10 dark:hover:bg-white/10"
+            className="lg:hidden text-[#001B52] dark:text-white hover:bg-[#001B52] hover:text-white dark:hover:bg-white/10"
             onClick={() => setSidebarOpen(false)}
           >
             <X className="h-5 w-5" />
@@ -113,10 +109,10 @@ export function DashboardLayout({ children }: { children: React.ReactNode }) {
                 key={item.name}
                 href={item.href}
                 className={cn(
-                  "flex items-center gap-3 px-3 py-2.5 text-sm font-medium rounded-lg transition-colors",
+                  "flex items-center gap-3 px-3 py-2.5 text-sm font-medium rounded-lg transition-all",
                   isActive
                     ? "bg-[#001B52] text-white dark:bg-[#00A67F]"
-                    : "text-[#001B52] dark:text-white hover:bg-[#001B52]/10 dark:hover:bg-white/10",
+                    : "text-[#001B52] dark:text-white hover:bg-[#001B52] hover:text-white dark:hover:bg-white/10",
                 )}
                 onClick={() => setSidebarOpen(false)}
               >
@@ -131,7 +127,7 @@ export function DashboardLayout({ children }: { children: React.ReactNode }) {
         <div className="p-4 border-t border-[#001B52]/10 dark:border-white/10 space-y-2">
           <Button
             variant="ghost"
-            className="w-full justify-start text-[#001B52] dark:text-white hover:bg-[#001B52] dark:hover:bg-white/10"
+            className="w-full justify-start text-[#001B52] dark:text-white hover:bg-[#001B52] hover:text-white dark:hover:bg-white/10"
             onClick={toggleTheme}
           >
             {theme === "light" ? <Moon className="h-5 w-5 mr-3" /> : <Sun className="h-5 w-5 mr-3" />}
@@ -153,7 +149,6 @@ export function DashboardLayout({ children }: { children: React.ReactNode }) {
         {/* Header */}
         <header className="bg-white border-b border-border">
           <div className="flex items-center justify-between px-6 py-3">
-            {/* Left: Page Title */}
             <div className="flex items-center gap-4">
               <Button
                 variant="ghost"
@@ -165,11 +160,8 @@ export function DashboardLayout({ children }: { children: React.ReactNode }) {
               </Button>
             </div>
 
-            {/* Right: User Info */}
             <div className="flex items-center gap-4">
               <span className="text-sm font-medium text-primary hidden sm:block">Dug. BOURGIN</span>
-
-              {/* User Avatar */}
               <div className="h-10 w-10 rounded-full bg-primary flex items-center justify-center">
                 <div className="h-8 w-8 rounded-full bg-white flex items-center justify-center">
                   <Users className="h-5 w-5 text-primary" />
@@ -179,7 +171,6 @@ export function DashboardLayout({ children }: { children: React.ReactNode }) {
           </div>
         </header>
 
-        {/* Main content area */}
         <main className="flex-1 overflow-y-auto overflow-x-hidden p-4 lg:p-8 max-w-full bg-white">{children}</main>
       </div>
     </div>
