@@ -8,6 +8,7 @@ import { Badge } from "@/components/ui/badge"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover"
 import { Calendar } from "@/components/ui/calendar"
+import { toast } from "sonner"
 import {
   FileSpreadsheet,
   FileText,
@@ -108,6 +109,10 @@ export default function ExportsPage() {
   ]
 
   const handleExport = () => {
+    toast.success("Génération de l'export en cours...", {
+      description: `Format: ${selectedFormat.toUpperCase()} - Type: ${selectedDataType}`,
+    })
+    
     console.log("Generating export:", {
       dateRange,
       company: selectedCompany,
@@ -342,6 +347,7 @@ export default function ExportsPage() {
                 onClick={handleExport}
                 className="bg-[#00A67F] hover:bg-[#00A67F]/90 text-white px-8"
                 size="lg"
+                type="button"
               >
                 <Download className="h-4 w-4 mr-2" />
                 Générer l{"'"}export
@@ -356,7 +362,7 @@ export default function ExportsPage() {
             <CardTitle className="text-lg font-bold text-[#001B52]">
               Historique des exports
             </CardTitle>
-            <Button variant="outline" size="sm" className="border-border bg-transparent dark:hover:hover:bg-[#001B52]">
+            <Button variant="outline" size="sm" className="border-border bg-transparent">
               Créer un export
             </Button>
           </CardHeader>
