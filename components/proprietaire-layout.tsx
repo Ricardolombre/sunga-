@@ -56,7 +56,7 @@ export function ProprietaireLayout({ children }: { children: React.ReactNode }) 
   }
 
   return (
-    <div className="flex h-screen bg-secondary">
+    <div className="flex h-screen w-full bg-secondary overflow-hidden">
       {/* Mobile sidebar backdrop */}
       {sidebarOpen && (
         <div className="fixed inset-0 z-40 bg-black/50 lg:hidden" onClick={() => setSidebarOpen(false)} />
@@ -139,9 +139,9 @@ export function ProprietaireLayout({ children }: { children: React.ReactNode }) 
       </aside>
 
       {/* Main content */}
-      <div className="flex-1 flex flex-col overflow-hidden">
+      <div className="flex-1 flex flex-col min-w-0 overflow-hidden">
         {/* Header */}
-        <header className="bg-white border-b border-border">
+        <header className="bg-white border-b border-border flex-shrink-0">
           <div className="flex items-center justify-between px-6 py-3">
             <div className="flex items-center gap-4">
               <Button
@@ -169,7 +169,11 @@ export function ProprietaireLayout({ children }: { children: React.ReactNode }) 
         </header>
 
         {/* Main content area */}
-        <main className="flex-1 overflow-y-auto overflow-x-hidden p-4 lg:p-8 max-w-full bg-white">{children}</main>
+        <main className="flex-1 overflow-y-auto p-4 lg:p-8 bg-white">
+          <div className="max-w-full mx-auto">
+            {children}
+          </div>
+        </main>
       </div>
     </div>
   )

@@ -92,7 +92,7 @@ export default function ProprietaireSalariesPage() {
 
   return (
     <ProprietaireLayout>
-      <div className="space-y-6">
+      <div className="space-y-6 max-w-full overflow-x-hidden">
         <div className="space-y-4">
           <h1 className="text-3xl font-bold text-primary">Gestion des salaries</h1>
           <p className="text-sm text-muted-foreground">
@@ -243,7 +243,7 @@ export default function ProprietaireSalariesPage() {
         </div>
       </div>
 
-      {/* Modal Ajouter un salarie - PAS de champ Societe/Entreprise */}
+      {/* Modal Ajouter un salarie */}
       {isModalOpen && (
         <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
           <div className="bg-white rounded-2xl w-full max-w-3xl overflow-hidden">

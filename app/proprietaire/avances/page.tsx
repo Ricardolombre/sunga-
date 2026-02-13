@@ -104,7 +104,7 @@ export default function ProprietaireAvancesPage() {
 
   return (
     <ProprietaireLayout>
-      <div className="space-y-6">
+      <div className="space-y-6 max-w-full overflow-x-hidden">
         <div className="space-y-4">
           <h1 className="text-3xl font-bold text-primary">Avances sur salaire</h1>
           <p className="text-sm text-muted-foreground">
